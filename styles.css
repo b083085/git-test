@@ -1,0 +1,44 @@
+:root {
+    --header-menu-color: #545454;
+    --menu-hover-color: #fba844;
+}
+
+.nav__header .nav__header__brand img.brand-resize {
+    max-width: 125px;
+    height:auto;
+    margin-top:10px;
+}
+
+.nav__header {
+    background: rgb(255, 250, 240, 0.8);
+}
+
+.nav__header__menus .nav__header__menu > a {
+    color: var(--header-menu-color)
+}
+
+.nav__header__search__btn {
+    color: var(--header-menu-color)
+}
+
+.nav__header__search__btn svg {
+    color: var(--header-menu-color) !important;
+}
+
+.btn-orange {
+    color: var(--header-menu-color);
+    border: 1px solid var(--menu-hover-color);
+    background: linear-gradient(90deg, transparent 50%, var(--menu-hover-color) 0);
+    background-size: 202% 100%;
+    background-position: 100% 100%;
+    transition: all 0.3s ease-out;
+    font-size:14px;
+}
+
+.site-footer {
+    background: rgb(255, 250, 240);
+}
+
+.u-s025 {
+    color: var(--header-menu-color) !important;
+}
