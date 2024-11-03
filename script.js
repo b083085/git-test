@@ -8,8 +8,12 @@ function isInViewport(element) {
 
 function animate(element, delay){
     if(isInViewport(element) && !element.classList.contains('aos-animate')){
-        setTimeout(() => element.classList.add('aos-animate'), delay);
+        setTimeout(() => addAnimation(element), delay);
     }
+}
+
+function addAnimation(element){
+    element.classList.add('aos-animate');
 }
 
 window.addEventListener("scroll", function(){
@@ -28,14 +32,23 @@ window.addEventListener("scroll", function(){
     animate(listingImages4,280);
     animate(listingImages5,330);
 
-    var mainImageAndContent = document.querySelector('.main__image__and__content');
-    animate(mainImageAndContent, 0);
+    var mainImageAndContent1 = document.querySelector('.main-image-and-content-1');
+    animate(mainImageAndContent1, 0);
 
-    var mainImageLeft = document.querySelector('.main__image__and__content [data-aos=fade-left]');
-    animate(mainImageLeft, 0);
+    var mainImageLeft1 = document.querySelector('.main-image-and-content-1 [data-aos=fade-left]');
+    animate(mainImageLeft1, 0);
 
-    var mainContentRight = document.querySelector('.main__image__and__content [data-aos=fade-right]');
-    animate(mainContentRight, 0);
+    var mainContentRight1 = document.querySelector('.main-image-and-content-1 [data-aos=fade-right]');
+    animate(mainContentRight1, 0);
+
+    var mainImageAndContent2 = document.querySelector('.main-image-and-content-2');
+    animate(mainImageAndContent2, 0);
+
+    var mainContentLeft2 = document.querySelector('.main-image-and-content-2 [data-aos=fade-left]');
+    animate(mainContentLeft2, 0);
+
+    var mainImageRight2 = document.querySelector('.main-image-and-content-2 [data-aos=fade-right]');
+    animate(mainImageRight2, 0);
 })
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -78,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function(){
         document.querySelector('.nav__header__search__btn').classList.toggle('show');
     })
 
-    document.querySelector('.section__hero').classList.add('aos-animate');
+    addAnimation(document.querySelector('.section__hero'));
 
     document.querySelectorAll('.main__listing__images > div').forEach(e => {
         e.addEventListener('mouseenter',function(evt){
