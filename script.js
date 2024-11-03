@@ -1,3 +1,34 @@
+function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    var html = document.documentElement;
+    var vHeight = (window.innerHeight || document.documentElement.clientHeight);
+
+    return ((rect.top > 0 || rect.bottom > 0) && rect.top < vHeight);
+}
+
+function animate(element, delay){
+    if(isInViewport(element) && !element.classList.contains('aos-animate')){
+        setTimeout(() => element.classList.add('aos-animate'), delay);
+    }
+}
+
+window.addEventListener("scroll", function(){
+    var mainListing = document.querySelector('.main__listing');
+    animate(mainListing, 0);
+
+    var listingImages1 = document.querySelector('.main__listing__images > div:first-child');
+    var listingImages2 = document.querySelector('.main__listing__images > div:nth-child(2)');
+    var listingImages3 = document.querySelector('.main__listing__images > div:nth-child(3)');
+    var listingImages4 = document.querySelector('.main__listing__images > div:nth-child(4)');
+    var listingImages5 = document.querySelector('.main__listing__images > div:last-child');
+    
+    animate(listingImages1,130);
+    animate(listingImages2,180);
+    animate(listingImages3,230);
+    animate(listingImages4,280);
+    animate(listingImages5,330);
+})
+
 document.addEventListener("DOMContentLoaded", function(){
     var style = getComputedStyle(document.body);
     var menuHoverColor = style.getPropertyValue('--menu-hover-color');
@@ -39,4 +70,21 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 
     document.querySelector('.section__hero').classList.add('aos-animate');
+
+    document.querySelectorAll('.main__listing__images > div').forEach(e => {
+        e.addEventListener('mouseenter',function(evt){
+            evt.target.querySelector('.overlay').style.opacity = 1;
+            evt.target.querySelector('.content-title').style.opacity = 0;
+            evt.target.querySelector('.content-title').style.display = 'none';
+            evt.target.querySelector('.content').style.opacity = 1;
+            evt.target.querySelector('.content').style.display = 'block';
+
+        })
+        e.addEventListener('mouseleave',function(evt){
+            evt.target.querySelector('.overlay').style.opacity = 0;
+            evt.target.querySelector('.content-title').style.opacity = 1;
+            evt.target.querySelector('.content-title').style.display = '';
+            evt.target.querySelector('.content').style.opacity = 0;
+        })
+    });
 })
