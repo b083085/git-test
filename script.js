@@ -27,6 +27,15 @@ window.addEventListener("scroll", function(){
     animate(listingImages3,230);
     animate(listingImages4,280);
     animate(listingImages5,330);
+
+    var mainImageAndContent = document.querySelector('.main__image__and__content');
+    animate(mainImageAndContent, 0);
+
+    var mainImageLeft = document.querySelector('.main__image__and__content [data-aos=fade-left]');
+    animate(mainImageLeft, 0);
+
+    var mainContentRight = document.querySelector('.main__image__and__content [data-aos=fade-right]');
+    animate(mainContentRight, 0);
 })
 
 document.addEventListener("DOMContentLoaded", function(){
